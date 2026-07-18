@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>STUDIO 84° — LONDON</title>
+<meta name="description" content="Alterations and made-to-measure, by appointment. Pinner, London." />
+<meta name="theme-color" content="#F3EEE5" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="STUDIO 84° — LONDON" />
+<meta property="og:description" content="Alterations and made-to-measure, by appointment. Pinner, London." />
+<meta property="og:image" content="og.png" />
+<meta property="og:type" content="website" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F3EEE5'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%238A6F52' stroke-width='3'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bone: #F3EEE5;
+    --ecru: #E9E2D4;
+    --carbon: #1C1A17;
+    --tobacco: #8A6F52;
+    --oxblood: #4E1F24;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bone);
+    color: var(--carbon);
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    position: relative;
+  }
+
+  .ring {
+    position: absolute;
+    top: -20vw;
+    right: -30vw;
+    width: 80vw;
+    height: 80vw;
+    max-width: 560px;
+    max-height: 560px;
+    border-radius: 50%;
+    border: 1px solid var(--tobacco);
+    opacity: 0.22;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 12vh 24px 6vh;
+    text-align: center;
+  }
+
+  .wordmark-block { margin-bottom: 2.5rem; }
+
+  .wordmark {
+    margin: 0;
+    font-family: "Cormorant", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(1.4rem, 5.6vw, 2.1rem);
+    letter-spacing: 0.3em;
+    padding-left: 0.3em; /* balance the trailing letter-spacing */
+    color: var(--carbon);
+  }
+
+  .wordmark-sub {
+    margin: 0.5rem 0 0;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.45em;
+    padding-left: 0.45em;
+    color: var(--tobacco);
+  }
+
+  .headline {
+    font-family: "Cormorant", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 5.2vw, 2rem);
+    line-height: 1.3;
+    margin: 0 0 1.75rem;
+    color: var(--carbon);
+  }
+
+  .service-note {
+    margin: 0 0 2.75rem;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--tobacco);
+    letter-spacing: 0.01em;
+  }
+
+  .service-note p { margin: 0; }
+
+  .cta {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    min-height: 48px;
+    background: var(--oxblood);
+    color: var(--bone);
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    border-radius: 3px;
+    text-align: center;
+  }
+
+  .cta:focus-visible {
+    outline: 2px solid var(--oxblood);
+    outline-offset: 4px;
+  }
+
+  .cta-note {
+    margin: 0.9rem auto 0;
+    max-width: 380px;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--tobacco);
+  }
+
+  .qr-card {
+    margin: 2.25rem auto 0;
+    max-width: 200px;
+    padding: 1.25rem;
+    background: var(--ecru);
+    border-radius: 4px;
+  }
+
+  .qr-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .qr-label {
+    margin: 0.75rem 0 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+    color: var(--tobacco);
+  }
+
+  .foot {
+    position: relative;
+    z-index: 1;
+    padding: 0 0 4vh;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-indent: 0.25em;
+    color: var(--tobacco);
+    text-align: center;
+  }
+
+  .fade { opacity: 0; animation: fadeUp 0.5s ease-out forwards; }
+  .fade-1 { animation-delay: 0s; }
+  .fade-2 { animation-delay: 0.25s; }
+  .fade-3 { animation-delay: 0.5s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade { opacity: 1; animation: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="ring" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="wordmark-block fade fade-1">
+      <p class="wordmark">STUDIO 84°</p>
+      <p class="wordmark-sub">LONDON</p>
+    </header>
+
+    <div class="fade fade-2">
+      <h1 class="headline">Alterations and made-to-measure, by appointment.</h1>
+      <div class="service-note">
+        <p>The Atelier — alterations, measured and pinned at your home or the studio.</p>
+        <p>Made to Measure — commissions, by consultation.</p>
+        <p>Pinner, London · HA5</p>
+      </div>
+    </div>
+
+    <div class="fade fade-3">
+      <a class="cta" href="https://wa.me/447504828622?text=Hello%20Omar%2C%20I%20would%20like%20to%20inquire%20about%20alterations">Message the studio</a>
+      <p class="cta-note">Opens WhatsApp with a short introduction. Nothing is sent until you press send.</p>
+
+      <div class="qr-card">
+        <img src="qr.png" alt="QR code that opens a WhatsApp chat with Studio 84°" width="140" height="140" />
+        <p class="qr-label">Or scan to open WhatsApp</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="foot">STUDIO 84° · LONDON</footer>
+
+</body>
+</html>
