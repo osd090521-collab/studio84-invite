@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>STUDIO 84° — Tailoring at the Door, London</title>
-<meta name="description" content="Tailoring at the door. Fittings and alterations, made with precision, anywhere in London." />
+<title>STUDIO 84° — Tailoring to Your Door, London</title>
+<meta name="description" content="Tailoring to your door. Alterations and made-to-measure, anywhere in London." />
 <meta name="theme-color" content="#F3EEE5" />
 
 <!-- Open Graph -->
 <meta property="og:title" content="STUDIO 84° — LONDON" />
-<meta property="og:description" content="Tailoring at the door. Fittings and alterations, made with precision, anywhere in London." />
+<meta property="og:description" content="Tailoring to your door. Alterations and made-to-measure, anywhere in London." />
 <meta property="og:image" content="og.png" />
 <meta property="og:type" content="website" />
 
@@ -47,6 +47,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     position: relative;
     background:
@@ -75,43 +76,16 @@
     to { transform: rotate(360deg); }
   }
 
-  .hero {
-    position: relative;
-    width: 100%;
-    height: clamp(340px, 52vh, 460px);
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-
-  .hero-photo {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 8%;
-  }
-
-  .hero-scrim {
+  .motif {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 18, 16, 0.6) 0%,
-      rgba(20, 18, 16, 0.15) 32%,
-      rgba(20, 18, 16, 0.2) 58%,
-      rgba(20, 18, 16, 0.72) 100%
-    );
-  }
-
-  .hero-content {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 2.75vh 24px;
-    text-align: center;
+    left: 4vw;
+    bottom: 3vh;
+    width: 100px;
+    height: auto;
+    color: var(--tobacco);
+    opacity: 0.13;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .wrap {
@@ -120,33 +94,31 @@
     width: 100%;
     max-width: 640px;
     margin: 0 auto;
-    padding: 2vh 24px 1.5vh;
+    padding: 12vh 24px 6vh;
     text-align: center;
   }
 
-  .wordmark-block { margin-bottom: 0; }
+  .wordmark-block { margin-bottom: 2.5rem; }
 
   .wordmark {
     margin: 0;
     font-family: "Cormorant", Georgia, serif;
     font-weight: 500;
-    font-size: clamp(1.3rem, 5.2vw, 1.9rem);
+    font-size: clamp(1.4rem, 5.6vw, 2.1rem);
     letter-spacing: 0.3em;
     padding-left: 0.3em; /* balance the trailing letter-spacing */
-    color: var(--bone);
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+    color: var(--carbon);
     animation: spreadWordmark 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .wordmark-sub {
-    margin: 0.4rem 0 0;
+    margin: 0.5rem 0 0;
     font-family: "Inter", sans-serif;
     font-weight: 500;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     letter-spacing: 0.45em;
     padding-left: 0.45em;
-    color: rgba(243, 238, 229, 0.85);
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    color: var(--tobacco);
     animation: spreadWordmarkSub 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
@@ -160,49 +132,19 @@
     to { letter-spacing: 0.45em; padding-left: 0.45em; }
   }
 
-  .hero-bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .headline {
     font-family: "Cormorant", Georgia, serif;
     font-weight: 500;
-    font-size: clamp(1.5rem, 6vw, 2.1rem);
-    line-height: 1.2;
-    margin: 0 0 1.1rem;
-    color: var(--bone);
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-  }
-
-  .qr-chip {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(243, 238, 229, 0.96);
-    padding: 0.55rem 0.6rem 0.5rem;
-    border-radius: 3px;
-    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.45);
-  }
-
-  .qr-chip img {
-    display: block;
-    width: 64px;
-    height: 64px;
-  }
-
-  .qr-chip-label {
-    margin: 0.35rem 0 0;
-    font-size: 0.58rem;
-    letter-spacing: 0.03em;
+    font-size: clamp(1.5rem, 5.2vw, 2rem);
+    line-height: 1.3;
+    margin: 0 0 1.75rem;
     color: var(--carbon);
   }
 
   .service-note {
-    margin: 1.1rem 0 1.1rem;
-    font-size: 0.78rem;
-    line-height: 1.45;
+    margin: 0 0 2.75rem;
+    font-size: 0.85rem;
+    line-height: 1.7;
     color: var(--tobacco);
     letter-spacing: 0.01em;
   }
@@ -216,7 +158,7 @@
     width: 100%;
     max-width: 420px;
     margin: 0 auto;
-    padding: 14px 24px;
+    padding: 16px 24px;
     min-height: 48px;
     background: var(--oxblood);
     color: var(--bone);
@@ -260,17 +202,40 @@
   }
 
   .cta-note {
-    margin: 0.5rem auto 0;
+    margin: 0.9rem auto 0;
     max-width: 380px;
-    font-size: 0.68rem;
-    line-height: 1.35;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--tobacco);
+  }
+
+  .qr-card {
+    margin: 2.25rem auto 0;
+    max-width: 200px;
+    padding: 1.5rem;
+    background: var(--bone);
+    border: 1px solid var(--tobacco);
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 4px var(--ecru), 0 14px 30px -12px rgba(28, 26, 23, 0.22);
+  }
+
+  .qr-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .qr-label {
+    margin: 0.75rem 0 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
     color: var(--tobacco);
   }
 
   .divider {
-    width: 28px;
+    width: 32px;
     height: 1px;
-    margin: 0 auto 1.1rem;
+    margin: 0 auto 2.5rem;
     background: var(--tobacco);
     opacity: 0.4;
   }
@@ -278,8 +243,8 @@
   .foot {
     position: relative;
     z-index: 1;
-    padding: 1.2vh 0 1vh;
-    font-size: 0.58rem;
+    padding: 0 0 4vh;
+    font-size: 0.65rem;
     letter-spacing: 0.25em;
     text-indent: 0.25em;
     color: var(--tobacco);
@@ -313,32 +278,28 @@
 </head>
 <body>
 
-  <div class="hero">
-    <img class="hero-photo" src="suit-photo.webp" alt="" aria-hidden="true" />
-    <div class="hero-scrim" aria-hidden="true"></div>
-    <div class="hero-content">
-      <header class="wordmark-block fade fade-1">
-        <p class="wordmark">STUDIO 84°</p>
-        <p class="wordmark-sub">LONDON</p>
-      </header>
+  <div class="ring" aria-hidden="true"></div>
 
-      <div class="hero-bottom fade fade-2">
-        <h1 class="headline">Tailoring at the door.</h1>
-        <div class="qr-chip">
-          <img src="qr.png" alt="QR code that opens a WhatsApp chat with Studio 84°" width="72" height="72" />
-          <p class="qr-chip-label">Scan to open WhatsApp</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <svg class="motif" viewBox="0 0 100 120" aria-hidden="true" focusable="false">
+    <path d="M50 8 L35 22 L18 16 L6 32 L6 44 L20 38 L20 112 L44 112 L44 50 L50 60 L56 50 L56 112 L80 112 L80 38 L94 44 L94 32 L82 16 L65 22 Z"
+          fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" />
+    <path d="M35 22 L50 8 L65 22" fill="none" stroke="currentColor" stroke-width="1" />
+    <circle cx="50" cy="72" r="1.6" fill="currentColor" />
+    <circle cx="50" cy="88" r="1.6" fill="currentColor" />
+    <path d="M14 26 Q 50 2 86 26" fill="none" stroke="currentColor" stroke-width="0.75" stroke-dasharray="2 3" />
+  </svg>
 
   <main class="wrap">
-    <div class="ring" aria-hidden="true"></div>
+    <header class="wordmark-block fade fade-1">
+      <p class="wordmark">STUDIO 84°</p>
+      <p class="wordmark-sub">LONDON</p>
+    </header>
 
     <div class="fade fade-2">
+      <h1 class="headline">Tailoring to your door.</h1>
       <div class="service-note">
-        <p>Fittings and Alterations — at your door, or in the studio.</p>
-        <p>Made with Precision — bespoke commissions, by consultation.</p>
+        <p>The Atelier — alterations and fittings, in your home or ours, anywhere in London.</p>
+        <p>Made to Measure — bespoke commissions, by consultation.</p>
         <p>London-wide · studio in Pinner, HA5</p>
       </div>
     </div>
@@ -348,6 +309,11 @@
     <div class="fade fade-3">
       <a class="cta" href="https://wa.me/447504828622?text=Hello%20Omar%2C%20I%20would%20like%20to%20inquire%20about%20alterations">Message the studio</a>
       <p class="cta-note">Opens WhatsApp with a short introduction. Nothing is sent until you press send.</p>
+
+      <div class="qr-card">
+        <img src="qr.png" alt="QR code that opens a WhatsApp chat with Studio 84°" width="140" height="140" />
+        <p class="qr-label">Or scan to open WhatsApp</p>
+      </div>
     </div>
   </main>
 
