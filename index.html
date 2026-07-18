@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>STUDIO 84° — LONDON</title>
-<meta name="description" content="Alterations and made-to-measure, by appointment. Pinner, London." />
+<title>STUDIO 84° — Tailoring to Your Door, London</title>
+<meta name="description" content="Tailoring to your door. Alterations and made-to-measure, anywhere in London." />
 <meta name="theme-color" content="#F3EEE5" />
 
 <!-- Open Graph -->
 <meta property="og:title" content="STUDIO 84° — LONDON" />
-<meta property="og:description" content="Alterations and made-to-measure, by appointment. Pinner, London." />
+<meta property="og:description" content="Tailoring to your door. Alterations and made-to-measure, anywhere in London." />
 <meta property="og:image" content="og.png" />
 <meta property="og:type" content="website" />
 
@@ -33,10 +33,13 @@
   html, body {
     margin: 0;
     padding: 0;
-    background: var(--bone);
     color: var(--carbon);
     width: 100%;
     overflow-x: hidden;
+  }
+
+  html {
+    background: var(--bone);
   }
 
   body {
@@ -47,6 +50,9 @@
     justify-content: center;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     position: relative;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 20%, rgba(255,255,255,0.5), transparent 65%),
+      var(--bone);
   }
 
   .ring {
@@ -60,6 +66,24 @@
     border-radius: 50%;
     border: 1px solid var(--tobacco);
     opacity: 0.22;
+    pointer-events: none;
+    z-index: 0;
+    animation: ringDrift 140s linear infinite;
+  }
+
+  @keyframes ringDrift {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .motif {
+    position: absolute;
+    left: 4vw;
+    bottom: 3vh;
+    width: 100px;
+    height: auto;
+    color: var(--tobacco);
+    opacity: 0.13;
     pointer-events: none;
     z-index: 0;
   }
@@ -84,6 +108,7 @@
     letter-spacing: 0.3em;
     padding-left: 0.3em; /* balance the trailing letter-spacing */
     color: var(--carbon);
+    animation: spreadWordmark 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .wordmark-sub {
@@ -94,6 +119,17 @@
     letter-spacing: 0.45em;
     padding-left: 0.45em;
     color: var(--tobacco);
+    animation: spreadWordmarkSub 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes spreadWordmark {
+    from { letter-spacing: 0.02em; padding-left: 0.02em; }
+    to { letter-spacing: 0.3em; padding-left: 0.3em; }
+  }
+
+  @keyframes spreadWordmarkSub {
+    from { letter-spacing: 0.05em; padding-left: 0.05em; }
+    to { letter-spacing: 0.45em; padding-left: 0.45em; }
   }
 
   .headline {
@@ -116,7 +152,9 @@
   .service-note p { margin: 0; }
 
   .cta {
+    position: relative;
     display: block;
+    overflow: hidden;
     width: 100%;
     max-width: 420px;
     margin: 0 auto;
@@ -131,6 +169,31 @@
     letter-spacing: 0.02em;
     border-radius: 3px;
     text-align: center;
+    box-shadow: 0 10px 28px -8px rgba(78, 31, 36, 0.45), 0 2px 6px rgba(28, 26, 23, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .cta:hover,
+  .cta:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px -8px rgba(78, 31, 36, 0.55), 0 4px 10px rgba(28, 26, 23, 0.12);
+  }
+
+  .cta::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(243, 238, 229, 0.3), transparent);
+    transform: skewX(-20deg);
+    animation: shimmer 2.4s ease-in-out 1.4s 1;
+  }
+
+  @keyframes shimmer {
+    from { left: -150%; }
+    to { left: 150%; }
   }
 
   .cta:focus-visible {
@@ -149,9 +212,11 @@
   .qr-card {
     margin: 2.25rem auto 0;
     max-width: 200px;
-    padding: 1.25rem;
-    background: var(--ecru);
-    border-radius: 4px;
+    padding: 1.5rem;
+    background: var(--bone);
+    border: 1px solid var(--tobacco);
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 4px var(--ecru), 0 14px 30px -12px rgba(28, 26, 23, 0.22);
   }
 
   .qr-card img {
@@ -165,6 +230,14 @@
     font-size: 0.7rem;
     letter-spacing: 0.03em;
     color: var(--tobacco);
+  }
+
+  .divider {
+    width: 32px;
+    height: 1px;
+    margin: 0 auto 2.5rem;
+    background: var(--tobacco);
+    opacity: 0.4;
   }
 
   .foot {
@@ -190,12 +263,31 @@
 
   @media (prefers-reduced-motion: reduce) {
     .fade { opacity: 1; animation: none; }
+    .ring { animation: none; }
+    .wordmark,
+    .wordmark-sub { animation: none; }
+    .cta::after { animation: none; content: none; }
+    .cta,
+    .cta:hover,
+    .cta:focus-visible {
+      transition: none;
+      transform: none;
+    }
   }
 </style>
 </head>
 <body>
 
   <div class="ring" aria-hidden="true"></div>
+
+  <svg class="motif" viewBox="0 0 100 120" aria-hidden="true" focusable="false">
+    <path d="M50 8 L35 22 L18 16 L6 32 L6 44 L20 38 L20 112 L44 112 L44 50 L50 60 L56 50 L56 112 L80 112 L80 38 L94 44 L94 32 L82 16 L65 22 Z"
+          fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" />
+    <path d="M35 22 L50 8 L65 22" fill="none" stroke="currentColor" stroke-width="1" />
+    <circle cx="50" cy="72" r="1.6" fill="currentColor" />
+    <circle cx="50" cy="88" r="1.6" fill="currentColor" />
+    <path d="M14 26 Q 50 2 86 26" fill="none" stroke="currentColor" stroke-width="0.75" stroke-dasharray="2 3" />
+  </svg>
 
   <main class="wrap">
     <header class="wordmark-block fade fade-1">
@@ -204,13 +296,15 @@
     </header>
 
     <div class="fade fade-2">
-      <h1 class="headline">Alterations and made-to-measure, by appointment.</h1>
+      <h1 class="headline">Tailoring to your door.</h1>
       <div class="service-note">
-        <p>The Atelier — alterations, measured and pinned at your home or the studio.</p>
-        <p>Made to Measure — commissions, by consultation.</p>
-        <p>Pinner, London · HA5</p>
+        <p>The Atelier — alterations and fittings, in your home or ours, anywhere in London.</p>
+        <p>Made to Measure — bespoke commissions, by consultation.</p>
+        <p>London-wide · studio in Pinner, HA5</p>
       </div>
     </div>
+
+    <div class="divider" aria-hidden="true"></div>
 
     <div class="fade fade-3">
       <a class="cta" href="https://wa.me/447504828622?text=Hello%20Omar%2C%20I%20would%20like%20to%20inquire%20about%20alterations">Message the studio</a>
